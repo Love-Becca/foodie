@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './Auth.css';
 import signup from '../assets/about_us.png'
-import { Form, Link, redirect} from 'react-router-dom';
+import { Form, Link, redirect } from 'react-router-dom';
 // import Footer from '../components/Footer'
 import { validateForm } from '../utils/validate';
+// import { FOODIMETRIC_HOST_URL } from '../utils/getData';
 
 export function signupLoader() {
     return "sowonoye"
@@ -11,6 +12,19 @@ export function signupLoader() {
 }
 const SignupPage = () => {
     const [errors, setErrors] = useState({});
+    const [userData, setUserData] = useState({
+        fullName: '',
+        email: '',
+        password: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData((prev) => ({ ...prev, [name]: value }));
+        const {errors} = validateForm(userData.email, userData.password, userData.fullName, 'signup')
+        setErrors(errors)
+    };
+
     return (
         <>
             <div className="signup-container">
@@ -25,7 +39,7 @@ const SignupPage = () => {
                                 placeholder="Enter your full name"
                                 name='userName'
                                 maxLength={35}
-                                // onChange={handleChange}
+                                onChange={handleChange}
                             />
                         </div>
                         {errors.fullName && <span className="error">{errors.fullName}</span>}
@@ -35,8 +49,9 @@ const SignupPage = () => {
                                 id="email"
                                 placeholder="Enter your email address"
                                 maxLength={35}
-                                // onChange={handleChange}
                                 name='email'
+                                onChange={handleChange}
+                                required
 
                             />
                         </div>
@@ -48,8 +63,9 @@ const SignupPage = () => {
                                 id="password"
                                 placeholder="Enter your password"
                                 maxLength={20}
-                                // onChange={handleChange}
                                 name='password'
+                                onChange={handleChange}
+                                required
                             />
                         </div>
                         {errors.password && <span className="error">{errors.password}</span>}
@@ -67,15 +83,17 @@ const SignupPage = () => {
 
 export default SignupPage;
 
-export async function signupAction({request}){
-  const data = await request.formData();
-  const signup_data = {
-    email: data.get('email'),
-    password: data.get('password'),
-    name: data.get('userName'),
-  }
-  const {isValid} = validateForm(signup_data.email, signup_data.password,signup_data.name, "signup");
-  if (isValid) {
-    return redirect("/search")
-  }
+export async function signupAction({ request }) {
+    const data = await request.formData();
+    const signup_data = {
+        email: data.get('email'),
+        password: data.get('password'),
+        name: data.get('userName'),
+    }
+    const { isValid} = validateForm(signup_data.email, signup_data.password, signup_data.name, "signup");
+
+    if (isValid) {
+        return redirect("/search")
+    }
+
 }

@@ -21,16 +21,16 @@ const Footer = () => {
         <h4>Resources</h4>
         <ul>
           <li>
-            <a href="#">Blogs</a>
+            <a href="#features">Blogs</a>
           </li>
           <li>
-            <a href="#">Newsletter</a>
+            <a href="#features">Newsletter</a>
           </li>
           <li>
-            <a href="#">Articles</a>
+            <a href="#features">Articles</a>
           </li>
           <li>
-            <a href="#">News</a>
+            <a href="#features">News</a>
           </li>
         </ul>
       </div>
@@ -38,22 +38,22 @@ const Footer = () => {
         <h4>Socials</h4>
         <ul>
           <li>
-            <a href="#">
+            <a href="#features">
               <i className="fab fa-instagram"></i>Instagram
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#features">
               <i className="fab fa-linkedin"></i>Linkedin
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#features">
               <i className="fab fa-facebook"></i>Facebook
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#features">
               <i className="fab fa-twitter"></i>Twitter
             </a>
           </li>
@@ -63,7 +63,7 @@ const Footer = () => {
         <h4>Menu</h4>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="#features">Home</a>
           </li>
           <li>
             <a href="#features">Features</a>
