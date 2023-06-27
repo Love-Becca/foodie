@@ -1,6 +1,6 @@
 import React from 'react';
 import './search.css'
-import down from '../assets/arrowdown2.svg'
+// import down from '../assets/arrowdown2.svg'
 import right from '../assets/arrowright2.svg'
 
 const ByFood = (props) => {

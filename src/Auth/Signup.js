@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Auth.css';
 import signup from '../assets/about_us.png'
 import { Form, Link, redirect} from 'react-router-dom';
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import { validateForm } from '../utils/validate';
 
 export function signupLoader() {
